@@ -1,52 +1,28 @@
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using MarcSync.Client;
 
-class Program
+public class Test
 {
-    static async Task Main(string[] args)
+    public static void Main()
     {
-        string accessToken = "tocken";
-        MarcSyncClient marcSync = new MarcSyncClient(accessToken);
+        Console.WriteLine("Hello World!");
+        Test2 test2 = new Test2();
+        test2.Test().Wait();
+    }
+}
 
-        string collectionName = "test_collection2";
-        var collection = marcSync.GetCollection(collectionName);
+public class Test2
+{
+    public async Task Test()
+    {
+        MarcSyncClient marcSyncClient = new MarcSyncClient("eyJhbGciOiJIUzI1NiIsInR5cCI6Im1hcmNzeW5jQWNjZXNzIn0.eyJkYXRhYmFzZUlkIjoiMmU0ZTQxZmMtZjI4YS00ZWU2LTkyZTctZmZjZGVjMDMwZjQzIiwidXNlcklkIjoiNjNlNjc3MDUyMmJkMiIsInRva2VuSWQiOiI2Nzg4MjE3MGU2NTAzYjEyZGQ3YjA2MmIiLCJuYmYiOjE3MzY5NzQ3MDQsImV4cCI6ODgxMzY4ODgzMDQsImlhdCI6MTczNjk3NDcwNCwiaXNzIjoibWFyY3N5bmMifQ.oBlPgNnF-ZfQkxBqYHYF6ckr2Il2i7OLgBca2QaMfNQ");
 
-        // Add test data
-        var testEntries = new List<Dictionary<string, object>>
-        {
-            new Dictionary<string, object> { { "name", "Alice" }, { "email", "alice@example.com" }, { "age", 30 } },
-            new Dictionary<string, object> { { "name", "Bob" }, { "email", "bob@example.com" }, { "age", 25 } },
-            new Dictionary<string, object> { { "name", "Charlie" }, { "email", "charlie@example.com" }, { "age", 35 } }
-        };
-
-        foreach (var entryData in testEntries)
-        {
-            try
-            {
-                await collection.CreateEntry(entryData);
-                Console.WriteLine($"Entry added: {entryData["name"]}");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error adding entry: {e.Message}");
-            }
-        }
-
-        // Fetch and display entries
-        try
-        {
-            var entries = await collection.GetEntries();
-            Console.WriteLine("Entries in the collection:");
-            foreach (var entry in entries)
-            {
-                Console.WriteLine(string.Join(", ", entry));
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Error fetching entries: {e.Message}");
-        }
+        var collection = marcSyncClient.GetCollection("test");
+        var entries = await collection.GetEntries();
+        
+        Console.WriteLine(JsonSerializer.Serialize(entries.First()));
     }
 }
