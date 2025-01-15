@@ -60,7 +60,7 @@ namespace MarcSync.Coll
 
             var payload = new { filters };
             var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-            var response = await httpClient.GetAsync($"https://api.marcsync.dev/v1/entries/{collectionName}");
+            var response = await httpClient.PatchAsync($"https://api.marcsync.dev/v1/entries/{collectionName}?methodOverwrite=GET", content);
             await CheckResponseStatus(response);
 
             var responseBody = await response.Content.ReadAsStringAsync();
