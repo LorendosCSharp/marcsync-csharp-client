@@ -1,4 +1,4 @@
-﻿namespace MarcSync.Coll
+namespace MarcSync.Coll
 {
     using System;
     using System.Collections.Generic;
@@ -12,68 +12,61 @@
     {
         private readonly string accessToken;
         private string collectionName;
+        private readonly HttpClient httpClient;
 
         public Collection(string accessToken, string collectionName)
         {
             this.accessToken = accessToken;
             this.collectionName = collectionName;
+            this.httpClient = new HttpClient();
+            this.httpClient.DefaultRequestHeaders.Add("Authorization", accessToken);
         }
 
-        public async Task CreateEntry(Dictionary<string, object> data)
+        // Helper method for checking the response status codes
+        private async Task CheckResponseStatus(HttpResponseMessage response)
+        {
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                throw new Exception("Invalid access token");
+            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                throw new Exception("Collection not found");
+            if (response.StatusCode == (System.Net.HttpStatusCode)429)
+                throw new Exception("Rate limit exceeded");
+            if (!response.IsSuccessStatusCode)
+                throw new Exception("Unknown error occurred");
+        }
+
+        // Method to create an entry and return an Entry object
+        public async Task<Entry> CreateEntry(Dictionary<string, object> data)
         {
             if (data.ContainsKey("_id"))
                 throw new Exception("Cannot set _id while creating entry");
 
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Authorization", accessToken);
-
             var payload = new { data };
             var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync($"https://api.marcsync.dev/v0/entries/{collectionName}", content);
-
-            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                throw new Exception("Invalid access token");
-
-            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                throw new Exception("Collection not found");
-
-            if (response.StatusCode == (System.Net.HttpStatusCode)429)
-                throw new Exception("Rate limit exceeded");
-
-            if (!response.IsSuccessStatusCode)
-                throw new Exception("Unknown error while creating entry");
+            await CheckResponseStatus(response);
 
             var responseBody = await response.Content.ReadAsStringAsync();
             var responseData = JsonSerializer.Deserialize<Dictionary<string, object>>(responseBody);
-
             data["_id"] = responseData["objectId"];
+
+            return new Entry(accessToken, collectionName, data);
         }
 
+        // Method to get entries
         public async Task<List<Dictionary<string, object>>> GetEntries(Dictionary<string, object> filters = null)
         {
             filters ??= new Dictionary<string, object>();
 
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Authorization", accessToken);
-
             var payload = new { filters };
             var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-            var response = await httpClient.GetAsync($"https://api.marcsync.dev/v0/entries/{collectionName}");
-
-            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                throw new Exception("Invalid access token");
-
-            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                throw new Exception("Collection not found");
-
-            if (response.StatusCode == (System.Net.HttpStatusCode)429)
-                throw new Exception("Rate limit exceeded");
+            var response = await httpClient.GetAsync($"https://api.marcsync.dev/v1/entries/{collectionName}");
+            await CheckResponseStatus(response);
 
             var responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseBody);
             var responseData = JsonSerializer.Deserialize<Dictionary<string, object>>(responseBody);
-
-            var entries = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(responseData["entries"].ToString());
-            return entries;
+            return JsonSerializer.Deserialize<List<Dictionary<string, object>>>(responseData["entries"].ToString());
         }
 
         public string GetName()
