@@ -13,6 +13,7 @@ See organization MarcSync on GitHub</Description>
     <PackageIcon>MarcSync.png</PackageIcon>
     <PackageTags>API , MarcSync , DB , </PackageTags>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

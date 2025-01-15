@@ -57,14 +57,12 @@ namespace MarcSync.Coll
         public async Task<List<Dictionary<string, object>>> GetEntries(Dictionary<string, object> filters = null)
         {
             filters ??= new Dictionary<string, object>();
-
+            
             var payload = new { filters };
             var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-            var response = await httpClient.GetAsync($"https://api.marcsync.dev/v1/entries/{collectionName}");
-            await CheckResponseStatus(response);
+            var response = await httpClient.PatchAsync($"https://api.marcsync.dev/v1/entries/{collectionName}?methodOverwrite=GET", content);
 
             var responseBody = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseBody);
             var responseData = JsonSerializer.Deserialize<Dictionary<string, object>>(responseBody);
             return JsonSerializer.Deserialize<List<Dictionary<string, object>>>(responseData["entries"].ToString());
         }
