@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MarcSync.Client</id>
+    <version>1.0.0</version>
+    <title>MarcSync API</title>
+    <authors>MarcSync Database</authors>
+    <license type="file">license.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>MarcSync.png</icon>
+    <description>A .NET (C#) Client for the MarcSync API. 
+See organization MarcSync on GitHub</description>
+    <tags>API , MarcSync , DB ,</tags>
+    <repository type="git" url="https://github.com/LorendosCSharp/marcsync-csharp-client" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\MarcSyncCSharp.dll" target="lib\net8.0\MarcSyncCSharp.dll" />
+    <file src="C:\Users\AdminAcc\Downloads\license.txt" target="\license.txt" />
+    <file src="C:\Users\AdminAcc\Downloads\MarcSync.png" target="\MarcSync.png" />
+  </files>
+</package>

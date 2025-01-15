@@ -1,0 +1,4 @@
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\publish\MarcSyncCSharp.dll
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\publish\MarcSyncCSharp.deps.json
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\publish\MarcSyncCSharp.pdb
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\publish\Newtonsoft.Json.dll

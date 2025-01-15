@@ -1,0 +1,12 @@
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\MarcSyncCSharp.deps.json
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\MarcSyncCSharp.dll
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\bin\Release\net8.0\MarcSyncCSharp.pdb
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.csproj.AssemblyReference.cache
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.AssemblyInfoInputs.cache
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.AssemblyInfo.cs
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.csproj.CoreCompileInputs.cache
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.dll
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\refint\MarcSyncCSharp.dll
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\MarcSyncCSharp.pdb
+C:\Users\AdminAcc\Documents\Projects\CSharp\MarcSyncCSharp\MarcSyncCSharp\obj\Release\net8.0\ref\MarcSyncCSharp.dll
