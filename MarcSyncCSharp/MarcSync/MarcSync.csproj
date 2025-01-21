@@ -14,6 +14,7 @@ See organization MarcSync on GitHub</Description>
     <PackageTags>API , MarcSync , DB , </PackageTags>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <LangVersion>latest</LangVersion>
+    <RootNamespace>MarcSyncCSharp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

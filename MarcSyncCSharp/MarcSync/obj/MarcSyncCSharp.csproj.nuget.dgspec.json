@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/marcthedev/RiderProjects/marcsync-csharp-client/MarcSyncCSharp/MarcSyncCSharp/MarcSyncCSharp.csproj": {}
+  },
+  "projects": {
+    "/home/marcthedev/RiderProjects/marcsync-csharp-client/MarcSyncCSharp/MarcSyncCSharp/MarcSyncCSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/marcthedev/RiderProjects/marcsync-csharp-client/MarcSyncCSharp/MarcSyncCSharp/MarcSyncCSharp.csproj",
+        "projectName": "MarcSync.Client",
+        "projectPath": "/home/marcthedev/RiderProjects/marcsync-csharp-client/MarcSyncCSharp/MarcSyncCSharp/MarcSyncCSharp.csproj",
+        "packagesPath": "/home/marcthedev/.nuget/packages/",
+        "outputPath": "/home/marcthedev/RiderProjects/marcsync-csharp-client/MarcSyncCSharp/MarcSyncCSharp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/marcthedev/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/marcthedev/.dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

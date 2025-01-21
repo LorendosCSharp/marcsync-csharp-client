@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6IVf62kZaT8=",
+  "success": true,
+  "projectFilePath": "/home/marcthedev/RiderProjects/marcsync-csharp-client/MarcSyncCSharp/MarcSync/MarcSync.csproj",
+  "expectedPackageFiles": [
+    "/home/marcthedev/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
